@@ -1,0 +1,4 @@
+scrapy
+w3lib
+openpyxl
+jsonlines
