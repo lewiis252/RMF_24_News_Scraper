@@ -1,25 +1,26 @@
-sender_email = 'email'
-receiver_email = 'email'
-password = 'email'
-
+from dotenv import load_dotenv, find_dotenv
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from scrapy.linkextractors import LinkExtractor
 from w3lib.html import remove_tags
 from scrapy.spiders import CrawlSpider, Rule
-from ...Scrapers.items import ScrapedInfo
-import email, smtplib, ssl
+from RMF_24_News_Scraper.Scrapers.items import ScrapedInfo
+import smtplib, ssl
 import os
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 import datetime
 import time
 from os import listdir
 from os.path import isfile, join
 import jsonlines
 
+load_dotenv(find_dotenv())
+
+sender_email = os.environ.get("sender_email")
+receiver_email = os.environ.get("receiver_email")
+password = os.environ.get("password")
 
 class RMF24(CrawlSpider):
     name = "RMF24"
