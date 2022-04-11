@@ -7,7 +7,7 @@ from scrapy.utils.project import get_project_settings
 from scrapy.linkextractors import LinkExtractor
 from w3lib.html import remove_tags
 from scrapy.spiders import CrawlSpider, Rule
-from Scrapers.items import ScrapedInfo
+from ...Scrapers.items import ScrapedInfo
 import email, smtplib, ssl
 import os
 from email import encoders
