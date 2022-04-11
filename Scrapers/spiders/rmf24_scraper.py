@@ -1,6 +1,5 @@
 sender_email = 'email'
 receiver_email = 'email'
-# receiver_email = 'pickerlewiis109@gmail.com' # for testing
 password = 'email'
 
 from scrapy.crawler import CrawlerProcess
