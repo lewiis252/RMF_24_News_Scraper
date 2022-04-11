@@ -1,10 +1,14 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+
 from dotenv import load_dotenv, find_dotenv
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from scrapy.linkextractors import LinkExtractor
 from w3lib.html import remove_tags
 from scrapy.spiders import CrawlSpider, Rule
-from RMF_24_News_Scraper.Scrapers.items import ScrapedInfo
+from ..items import ScrapedInfo
 import smtplib, ssl
 import os
 from email import encoders
