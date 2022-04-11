@@ -15,4 +15,13 @@ pip install -r requirements.txt
 git clone git@github.com:lewiis252/RMF_24_News_Scraper.git
 ```
 
-After setting your virtual enviroment you must provide your emails and password - go and edit rmf24_scraper.py (html file will be create without this but won't send to your kindle device). Then simply run that file. 
+After setting your virtual enviroment you must provide your emails and password - create .env file and fill it like this (html file will be create without this but won't send to your kindle device).
+
+```sh
+# login settings
+sender_email = 'my_email.com'
+receiver_email = 'my_device_mail@kindle.com'
+password = 'passsword'
+```
+
+Then simply run rmf24_scraper.py file. 
