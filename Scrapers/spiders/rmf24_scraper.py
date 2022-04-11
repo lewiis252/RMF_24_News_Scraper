@@ -1,6 +1,7 @@
+import os
 import sys
-from pathlib import Path
-sys.path.append(str(Path('.').absolute().parent))
+# Append parent directory to import path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from dotenv import load_dotenv, find_dotenv
 from scrapy.crawler import CrawlerProcess
@@ -8,9 +9,9 @@ from scrapy.utils.project import get_project_settings
 from scrapy.linkextractors import LinkExtractor
 from w3lib.html import remove_tags
 from scrapy.spiders import CrawlSpider, Rule
-from ..items import ScrapedInfo
+from items import ScrapedInfo
 import smtplib, ssl
-import os
+
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
