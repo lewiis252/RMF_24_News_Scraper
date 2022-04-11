@@ -43,6 +43,7 @@ class RMF24(CrawlSpider):
         scraped_info = ScrapedInfo()
 
         scraped_info['title'] = ' '.join(str(response.xpath("//h1[@class='article-title']/text()").get()).split())
+        scraped_info['date'] = ' '.join(str(response.xpath("//div[@class='article-date']/text()[2]").get()).split())
         scraped_info['summary'] = ' '.join(str(response.xpath("//p[@class='article-lead']/text()").get()).split())
         scraped_info['text'] = ' '.join(map(lambda s: remove_tags(" ".join(s.split())), response.xpath(
             "//div[@class='articleContent']//*[self::p or self::b or self::i or self::li]/text()").getall()))
@@ -98,6 +99,9 @@ with open(f"files_to_sent/RMF_{current_date}.html", "a", encoding="utf-8") as f,
         f.write('</h3>')
         f.write('<p>')
         f.write(obj['url'])
+        f.write('</p>')
+        f.write('<p>')
+        f.write(obj['date'])
         f.write('</p>')
         f.write('<p>')
         f.write('<b>')

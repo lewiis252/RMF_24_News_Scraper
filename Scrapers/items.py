@@ -15,6 +15,7 @@ class ScrapersItem(scrapy.Item):
 class ScrapedInfo(scrapy.Item):
     title = scrapy.Field(serializer=str)
     summary = scrapy.Field(serializer=str)
+    date = scrapy.Field(serializer=str)
     text = scrapy.Field(serializer=str)
     url = scrapy.Field(serializer=str)
 
