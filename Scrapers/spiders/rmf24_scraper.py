@@ -30,16 +30,22 @@ password = os.environ.get("password")
 class RMF24(CrawlSpider):
     name = "RMF24"
     allowed_domains = ["www.rmf24.pl"]
-    start_urls = ["https://www.rmf24.pl/fakty"]
+    start_urls = ["https://www.rmf24.pl/fakty",
+                  "https://www.rmf24.pl/fakty,nPack,2",
+                  "https://www.rmf24.pl/fakty,nPack,3",
+                  "https://www.rmf24.pl/fakty,nPack,4",
+                  "https://www.rmf24.pl/fakty,nPack,5"]
     # custom_settings = {'CLOSESPIDER_TIMEOUT': 120, 'FEEDS': {'scraped_articles.jsonl': {'format': 'jsonlines'}}} # stop scrape pages after 60 seconds
     # custom_settings = {'CLOSESPIDER_PAGECOUNT': 30, 'FEEDS': {'scraped_articles.jsonl': {
     #     'format': 'jsonlines'}}}  # stop after certain number of articles, but i'm not sure how it works exactly
-    custom_settings = {'CLOSESPIDER_ITEMCOUNT': 30, 'FEEDS': {'scraped_articles.jsonl': {
-        'format': 'jsonlines'}}}  # stop after downloading certain number of articles, but i'm not sure how it works exactly
+    # custom_settings = {'CLOSESPIDER_ITEMCOUNT': 30, 'FEEDS': {'scraped_articles.jsonl': {
+    #     'format': 'jsonlines'}}}  # stop after downloading certain number of articles, but i'm not sure how it works exactly
+    custom_settings = {'FEEDS': {'scraped_articles.jsonl': {
+        'format': 'jsonlines'}}}
 
     # open urls on page and go to next page
     rules = (Rule(LinkExtractor(restrict_xpaths="//h3/a"), callback='parse_page', follow=True),
-             Rule(LinkExtractor(restrict_xpaths="//li[@class='next enable']//a|//a[@class='wiecej']"))
+
              # go to the next page
              )
 
