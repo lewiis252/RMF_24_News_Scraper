@@ -25,3 +25,7 @@ password = 'passsword'
 ```
 
 Then simply run rmf24_scraper.py file. 
+
+## New google security policy
+Follow this guide to send via gmail. 
+https://stackoverflow.com/questions/72478573/sending-and-email-using-python-problem-causes-by-last-google-policy-update-on
